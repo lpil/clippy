@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Clippy",
+  "short_name": "Clippy",
+  "homepage_url": "https://github.com/weareroli/clippy",
+  "author": "Louis Pilfold <louis@lpil.uk>",
+  "version": "0.1.0",
+
+  "default_locale": "en",
+  "description": "Your friendly digital assistant, a browser extension for Chrome.",
+
+  "browser_action": {
+  },
+  "page_action": {
+  },
+  "commands": {
+  },
+  "content_scripts": [{}],
+  "event_rules": [{}],
+
+  "permissions": [
+  ]
+}

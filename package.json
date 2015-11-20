@@ -1,7 +1,7 @@
 {
   "name": "clippy",
   "version": "0.0.1",
-  "description": "",
+  "description": "Your friendly digital assistant, a browser extension for Chrome.",
   "main": "",
   "scripts": {
     "start": "./node_modules/brunch/bin/brunch watch",
