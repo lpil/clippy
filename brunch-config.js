@@ -6,16 +6,20 @@ exports.config = {
   files: {
     javascripts: {
       joinTo: {
-        'main.js': /^app/,
-      }
+        'clippy.js': /^app/,
+      },
     },
   },
 
-  // npm: { enabled: true },
+  modules: {
+    autoRequire: {
+      'clippy.js': ['main'],
+    },
+  },
 
   plugins: {
     babel: {
-      ignore: [/\/vendor\//]
-    }
+      ignore: [/\/vendor\//],
+    },
   },
 };

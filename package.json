@@ -5,7 +5,8 @@
   "main": "",
   "scripts": {
     "start": "./node_modules/brunch/bin/brunch watch",
-    "test": "./node_modules/karma/bin/karma start"
+    "test": "./node_modules/karma/bin/karma start",
+    "clean": "rm -r public/*"
   },
   "repository": {
     "type": "git",

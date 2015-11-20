@@ -5,19 +5,19 @@
   "homepage_url": "https://github.com/weareroli/clippy",
   "author": "Louis Pilfold <louis@lpil.uk>",
   "version": "0.1.0",
-
-  "default_locale": "en",
   "description": "Your friendly digital assistant, a browser extension for Chrome.",
 
-  "browser_action": {
-  },
-  "page_action": {
-  },
-  "commands": {
-  },
-  "content_scripts": [{}],
-  "event_rules": [{}],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.roli.com/team"
+      ],
+      "js": ["clippy.js"]
+    }
+  ],
 
   "permissions": [
+    "tabs",
+    "https://roli.com/*"
   ]
 }
