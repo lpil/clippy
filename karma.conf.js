@@ -14,7 +14,7 @@ module.exports = function(config) {
     frameworks: ['mocha', 'chai'],
 
     files: [
-      'public/main.js',
+      'public/clippy.js',
       'test/**/*_test.js',
     ],
     exclude: [],

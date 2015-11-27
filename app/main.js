@@ -1,7 +1,6 @@
 'use strict';
 
-import foo from 'foo';
+import router from './router';
 
-console.log('in main');
-foo();
-console.log('back in main');
+const action = router(window.location.href);
+if (action) { require(action)(); }
