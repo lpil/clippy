@@ -4,11 +4,8 @@
 
 exports.config = {
   files: {
-    javascripts: {
-      joinTo: {
-        'clippy.js': /^app/,
-      },
-    },
+    javascripts: { joinTo: { 'clippy.js': /^app/ } },
+    templates:   { joinTo: { 'clippy.js': /^app/ } },
   },
 
   modules: {

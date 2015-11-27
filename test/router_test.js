@@ -8,7 +8,7 @@ function assertRoute(uri, path) {
 
 describe('router', () => {
   it('covers roli.com/team', () => {
-    assertRoute('https://www.roli.com/team', 'actions/roli_team');
-    assertRoute('http://www.roli.com/team',  'actions/roli_team');
+    assertRoute('https://www.roli.com/team', 'roli_team');
+    assertRoute('http://www.roli.com/team',  'roli_team');
   });
 });

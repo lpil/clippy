@@ -2,5 +2,5 @@
 
 import router from './router';
 
-const action = router(window.location.href);
-if (action) { require(action)(); }
+const controller = router(window.location.href);
+if (controller) { require(`controllers/${controller}`).call(); }
