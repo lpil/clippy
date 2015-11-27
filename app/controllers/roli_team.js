@@ -4,9 +4,9 @@
 
 var container;
 
-function gatherTeam() {
+function gatherTeam(dom = document) {
   const team  = [];
-  const nodes = document.querySelectorAll('.team-member');
+  const nodes = dom.querySelectorAll('.team-member');
   var i = nodes.length;
   while (i--) {
     const image = nodes[i].children[0].src;
@@ -16,7 +16,7 @@ function gatherTeam() {
   return team;
 }
 
-export default function run() {
+function call() {
   container = document.createElement('div');
   container.classList.add('roli-clippy-container');
   document.querySelector('body').appendChild(container);
@@ -24,3 +24,5 @@ export default function run() {
   console.log(JSON.stringify(team, null, '\t'));
   // container.innerHTML = view();
 }
+
+export default { call, gatherTeam };
