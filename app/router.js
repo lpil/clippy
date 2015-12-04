@@ -1,9 +1,11 @@
 'use strict';
 
+import roliTeam from 'apps/roli_team';
+
 const routes = [
   [
-    /https?:\/\/www.roli.com\/team/, 'roli_team',
-  ]
+    /https?:\/\/www.roli.com\/team/, roliTeam,
+  ],
 ];
 
 //
@@ -12,7 +14,7 @@ const routes = [
 export default function router(location) {
   let i = routes.length;
   while (i--) {
-    const [pattern, controller] = routes[i];
-    if (pattern.test(location)) { return controller; }
+    const [pattern, app] = routes[i];
+    if (pattern.test(location)) { return app; }
   }
 }

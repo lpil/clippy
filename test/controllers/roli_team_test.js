@@ -1,6 +1,6 @@
 'use strict';
 
-import { gatherTeam } from 'controllers/roli_team';
+import { gatherTeam } from 'apps/roli_team';
 
 describe('gatherTeam', () => {
   it('queries a given document for team members', () => {
