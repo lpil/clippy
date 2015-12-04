@@ -2,6 +2,11 @@
 
 import view from 'views/roli_team';
 
+let domImg;
+let domOps;
+let domRes;
+let team;
+
 function gatherTeam(dom = document) {
   const team  = {};
   const nodes = dom.querySelectorAll('.team-member');
@@ -16,14 +21,16 @@ function gatherTeam(dom = document) {
 }
 
 function insertView() {
-  document
-    .querySelector('body')
-    .insertAdjacentHTML('beforeend', view());
+  const body = document.querySelector('body');
+  body.insertAdjacentHTML('beforeend', view());
+  const container = body.lastChild;
+  domRes = container.querySelector('.clippy-roli-team .results');
+  domImg = container.querySelector('.clippy-roli-team img');
+  domOps = container.querySelector('.clippy-roli-team .clippy-team-option');
 }
 
 function call() {
-  const team = gatherTeam();
-  console.log(JSON.stringify(team, null, '\t'));
+  team = gatherTeam();
   insertView();
 }
 
