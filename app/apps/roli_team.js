@@ -2,42 +2,47 @@
 
 import view from 'views/roli_team';
 
+const numOps = 5;
+
 let domImg;
 let domOps;
 let domRes;
 let team;
 
-function handleChoice(event) {
-  console.log(event.srcElement.innerText);
-}
-
 function startRound(domImg, domOps, team) {
-  let i = 3;
-  let picks = _.chain(team).keys().sample(3).value();
+  let picks = _.chain(team).keys().sample(numOps).value();
   domImg.src = team[picks[0]];
   domImg.dataset.name = picks[0];
-  picks = _.shuffle(picks);
-  while (i--) {
-    domOps[i].textContent = picks[i];
+  _.chain(picks).shuffle().forEach((pick, i) => {
+    domOps[i].textContent = pick;
+  }).value();
+}
+
+function handleChoice(event) {
+  const pick = event.srcElement.innerText;
+  if (pick === domImg.dataset.name) {
+    alert('You win!');
+    startRound(domImg, domOps, team);
+    console.log('go');
+  } else {
+    alert('Try again.');
   }
 }
 
 function gatherTeam(dom = document) {
   const team  = {};
   const nodes = dom.querySelectorAll('.team-member');
-  let i = nodes.length;
-  while (i--) {
-    const node  = nodes[i];
+  _.forEach(nodes, (node) => {
     const image = node.children[0].src;
     const name  = node.children[1].textContent;
     team[name]  = image;
-  }
+  });
   return team;
 }
 
 function insertView() {
   const body = document.querySelector('body');
-  body.insertAdjacentHTML('beforeend', view());
+  body.insertAdjacentHTML('beforeend', view({ n: numOps }));
   const container = body.lastChild;
   domRes = container.querySelector('.clippy-roli-team .results');
   domImg = container.querySelector('.clippy-roli-team img');
