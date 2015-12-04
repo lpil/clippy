@@ -14,10 +14,10 @@ describe('gatherTeam', () => {
       return fakeNodes;
     };
     const result = gatherTeam({ querySelectorAll: qsaStub });
-    const expected = [
-      { image: 'bar.png', name: 'Grace Hopper' },
-      { image: 'foo.png', name: 'Matt Damon' },
-    ];
+    const expected = {
+      'Matt Damon':   'foo.png',
+      'Grace Hopper': 'bar.png',
+    };
     assert.deepEqual(result, expected);
   });
 });
