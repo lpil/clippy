@@ -15,6 +15,7 @@ function startRound(domImg, domOps, team) {
   let i = 3;
   let picks = _.chain(team).keys().sample(3).value();
   domImg.src = team[picks[0]];
+  domImg.dataset.name = picks[0];
   picks = _.shuffle(picks);
   while (i--) {
     domOps[i].textContent = picks[i];
