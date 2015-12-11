@@ -25,3 +25,14 @@ npm start   # Start the compiler
 ```sh
 npm run-script clean # Empty the public dir
 ```
+
+## Dev Notes
+
+[Understanding Chrome
+Extensions](https://gist.github.com/jjperezaguinaga/4243341)
+
+API Docs
+
+* [Storage](https://developer.chrome.com/extensions/storage)
+* [Event pages](https://developer.chrome.com/extensions/event_pages)
+* [Tabs](https://developer.chrome.com/extensions/tabs)

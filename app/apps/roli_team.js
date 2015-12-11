@@ -43,7 +43,7 @@ function gatherTeam(dom = document) {
 function insertView() {
   const body = document.querySelector('body');
   body.insertAdjacentHTML('beforeend', view({ n: numOps }));
-  const container = body.lastChild;
+  const container = body.querySelector('.clippy-roli-team');
   domRes = container.querySelector('.clippy-roli-team .results');
   domImg = container.querySelector('.clippy-roli-team img');
   domOps = container.querySelectorAll('.clippy-roli-team .clippy-team-option');
@@ -56,6 +56,7 @@ function call() {
   team = gatherTeam();
   insertView();
   startRound(domImg, domOps, team);
+  console.log(chrome.tabs);
 }
 
 export default {

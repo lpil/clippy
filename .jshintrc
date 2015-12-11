@@ -27,7 +27,8 @@
   "esnext"  : true,
 
   "globals": {
-    "_": true,
-    "require": true
+    "_":       true,
+    "require": true,
+    "chrome":  true
   }
 }
