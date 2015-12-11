@@ -1,6 +1,7 @@
 'use strict';
 
-import view from 'views/roli_team';
+import startButton from 'views/roli_team_start';
+import view        from 'views/roli_team';
 
 const numOps = 5;
 
@@ -9,7 +10,7 @@ let domOps;
 let domRes;
 let team;
 
-function startRound(domImg, domOps, team) {
+function startRound() {
   let picks = _.chain(team).keys().sample(numOps).value();
   domImg.src = team[picks[0]];
   domImg.dataset.name = picks[0];
@@ -29,9 +30,9 @@ function handleChoice(event) {
   }
 }
 
-function gatherTeam(dom = document) {
+function gatherTeam(body) {
   const team  = {};
-  const nodes = dom.querySelectorAll('.team-member');
+  const nodes = body.querySelectorAll('.team-member');
   _.forEach(nodes, (node) => {
     const image = node.children[0].src;
     const name  = node.children[1].textContent;
@@ -40,8 +41,8 @@ function gatherTeam(dom = document) {
   return team;
 }
 
-function insertView() {
-  const body = document.querySelector('body');
+function insertView(body, win) {
+  win.scroll(0, 0);
   body.insertAdjacentHTML('beforeend', view({ n: numOps }));
   const container = body.querySelector('.clippy-roli-team');
   domRes = container.querySelector('.clippy-roli-team .results');
@@ -52,11 +53,20 @@ function insertView() {
   });
 }
 
+function insertStart(body, window) {
+  body.insertAdjacentHTML('beforeend', startButton());
+  const el = body.querySelector('.clippy-roli-team-start');
+  el.onclick = () => {
+    insertView(body, window);
+    startRound();
+  };
+  body.appendChild(el);
+}
+
 function call() {
-  team = gatherTeam();
-  insertView();
-  startRound(domImg, domOps, team);
-  console.log(chrome.tabs);
+  const body = document.querySelector('body');
+  team = gatherTeam(body);
+  insertStart(body, window);
 }
 
 export default {
