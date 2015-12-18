@@ -15,18 +15,18 @@ function startRound() {
   domImg.src = team[picks[0]];
   domImg.dataset.name = picks[0];
   _.chain(picks).shuffle().forEach((pick, i) => {
+    domOps[i].classList.remove('fade-out');
     domOps[i].textContent = pick;
   }).value();
 }
 
 function handleChoice(event) {
   const pick = event.srcElement.innerText;
+  event.srcElement.classList.add('fade-out');
   if (pick === domImg.dataset.name) {
     alert('You win!');
     startRound(domImg, domOps, team);
     console.log('go');
-  } else {
-    alert('Try again.');
   }
 }
 
